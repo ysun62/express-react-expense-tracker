@@ -10,6 +10,7 @@ dotenv.config({ path: "./config/config.env" });
 connectDB();
 
 const transactions = require("./routes/transactions");
+const users = require("./routes/users");
 
 const app = express();
 
@@ -20,6 +21,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 app.use("/api/v1/transactions", transactions);
+app.use("/api/user", users);
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === "production") {
